@@ -5,6 +5,7 @@ import axios from "axios"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import { Button } from "react-bootstrap"
+import AlbumPagination from "./AlbumPagination"
 
 const album_url = "https://jsonplaceholder.typicode.com/albums/"
 const user_url = "http://jsonplaceholder.typicode.com/users"
@@ -16,8 +17,10 @@ class Home extends Component {
     getAlbums = () => {
         axios.get(album_url)
             .then((response) => {
-                // handle success                                
-                this.props.getAlbumData(response.data)
+                // handle success
+                let start = (this.props.activePage-1) * 5
+                let albums = response.data.slice(start,start+5)                               
+                this.props.getAlbumData(albums)
                 console.log("albums", this.props.albums)
             })
             .catch(function (error) {
@@ -30,8 +33,8 @@ class Home extends Component {
     }
     getUsers = () => {
         axios.get(user_url)
-            .then((response) => {
-                // handle success                                
+            .then((response) => {                
+                // handle success                                               
                 this.props.getUserData(response.data)
                 console.log("users", this.props.users)
             })
@@ -53,6 +56,10 @@ class Home extends Component {
     componentDidMount() {
         this.getAlbums()
         this.getUsers()
+    }
+    componentDidUpdate(prevprops){
+        if(prevprops.activePage != this.props.activePage)
+        this.getAlbums()
     }
     render() {
         const { albums, users } = this.props
@@ -83,6 +90,9 @@ class Home extends Component {
                             )
                         })}
                     </div>
+                    <div>
+                        <AlbumPagination />
+                    </div>
                 </div>
             </div>
         )
@@ -91,7 +101,8 @@ class Home extends Component {
 const mapStateToProps = store => {
     return {
         albums: store.albums,
-        users: store.users
+        users: store.users,
+        activePage: store.activePage
     }
 }
 

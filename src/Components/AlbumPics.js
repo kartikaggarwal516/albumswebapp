@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom"
 import { bindActionCreators } from "redux"
 import { connect } from "react-redux"
 import { Card } from "react-bootstrap"
+import PicsPagination from "./PicsPagination"
 
 const pics_url = "https://jsonplaceholder.typicode.com/albums"
 
@@ -16,7 +17,7 @@ class AlbumPics extends Component {
     getPics = (albumid) => {
         axios.get(`${pics_url}/${albumid}/photos`)
             .then((response) => {
-                // handle success                
+                // handle success                               
                 this.props.getAlbumPics(response.data)
                 console.log("pics", this.props.pics)
             })
@@ -36,17 +37,17 @@ class AlbumPics extends Component {
             albumTitle: title,
             username: name
         })
-    }
+    }    
     render() {
         const { pics } = this.props
-        const { albumTitle, username } = this.state
+        const { albumTitle, username} = this.state
         return (
             <div className="picspage">
                 <div className="picsbox">
                     <h2>{albumTitle}</h2>
                     <h4>{username}</h4>
                     <div className="picslist">
-                        {pics.map((pic, i) => {
+                        {pics.slice((this.props.activePicPage-1)*9,(this.props.activePicPage-1)*9+9).map((pic, i) => {
                             return (
                                 <Card className="piccard" key={i} style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src={pic.url} />
@@ -57,6 +58,9 @@ class AlbumPics extends Component {
                             )
                         })}
                     </div>
+                    <div>
+                        <PicsPagination />
+                    </div>
                 </div>
             </div>
         )
@@ -64,7 +68,8 @@ class AlbumPics extends Component {
 }
 const mapStateToProps = store => {
     return {
-        pics: store.pics
+        pics: store.pics,
+        activePicPage: store.activePicPage
     }
 }
 
