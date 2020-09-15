@@ -1,0 +1,50 @@
+.albums{
+    display: flex;
+    justify-content: center;
+}
+.albumbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+}
+.albumlist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.albuminfo{
+    margin-top: 10px;
+    text-align: center;        
+    background-color: green;
+    color: white;
+}
+.moreinfo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.morebtn{
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.picspage{
+    display: flex;
+    justify-content: center;
+}
+.picsbox{
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+}
+.picslist{
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.piccard{
+    margin-top: 10px;
+}
