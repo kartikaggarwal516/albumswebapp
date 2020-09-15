@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/albumswebapp/static/css/main.acac6592.chunk.css",
+    "main.js": "/albumswebapp/static/js/main.75be4bb7.chunk.js",
+    "main.js.map": "/albumswebapp/static/js/main.75be4bb7.chunk.js.map",
+    "runtime-main.js": "/albumswebapp/static/js/runtime-main.cc9be27c.js",
+    "runtime-main.js.map": "/albumswebapp/static/js/runtime-main.cc9be27c.js.map",
+    "static/css/2.d9ad5f5c.chunk.css": "/albumswebapp/static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.5c0ebe20.chunk.js": "/albumswebapp/static/js/2.5c0ebe20.chunk.js",
+    "static/js/2.5c0ebe20.chunk.js.map": "/albumswebapp/static/js/2.5c0ebe20.chunk.js.map",
+    "index.html": "/albumswebapp/index.html",
+    "precache-manifest.4339edcf836329b671d9d8077c5b0961.js": "/albumswebapp/precache-manifest.4339edcf836329b671d9d8077c5b0961.js",
+    "service-worker.js": "/albumswebapp/service-worker.js",
+    "static/css/2.d9ad5f5c.chunk.css.map": "/albumswebapp/static/css/2.d9ad5f5c.chunk.css.map",
+    "static/css/main.acac6592.chunk.css.map": "/albumswebapp/static/css/main.acac6592.chunk.css.map",
+    "static/js/2.5c0ebe20.chunk.js.LICENSE.txt": "/albumswebapp/static/js/2.5c0ebe20.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cc9be27c.js",
+    "static/css/2.d9ad5f5c.chunk.css",
+    "static/js/2.5c0ebe20.chunk.js",
+    "static/css/main.acac6592.chunk.css",
+    "static/js/main.75be4bb7.chunk.js"
+  ]
+}
